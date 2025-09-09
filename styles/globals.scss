@@ -1,0 +1,120 @@
+@use '@/styles/variables' as *;
+@use 'sass:list';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .3s ease-out;
+  text-decoration: none;
+  list-style: none;
+}
+
+svg {
+  width: 1em;
+  height: 1em;
+}
+.nilmirklogo {
+  aspect-ratio: 3/2;
+  height: 1em;
+  width: auto;
+}
+
+body {
+  background-color: $black;
+  color: $white;
+  @extend .flex-c, .gap-40;
+}
+
+main {
+  @extend .flex-c, .gap-96;
+  margin-top: 100 * $mirk;
+}
+
+@mixin flex($direction: 'row', $wrap: 'nowrap') {
+  display: flex;
+  flex-flow: $direction $wrap;
+}
+@mixin gap($gap) {
+  gap: $gap * $mirk;
+}
+
+@mixin pad-h($pad) {
+  padding-left: $pad * $mirk;
+  padding-right: $pad * $mirk;
+}
+@mixin pad-v($pad) {
+  padding-top: $pad * $mirk;
+  padding-bottom: $pad * $mirk;
+}
+
+$flexes: (
+  "r": (row, nowrap),
+  "c": (column, nowrap),
+  "rr": (row-reverse, nowrap),
+  "cr": (column-reverse, nowrap),
+  "rw": (row, wrap),
+  "cw": (column, wrap),
+  "rrw": (row-reverse, wrap),
+  "crw": (column-reverse, wrap),
+);
+
+@each $name, $value in $flexes {
+  .flex-#{$name} {
+    @include flex(list.nth($value, 1), list.nth($value, 2))
+  }
+}
+
+@for $i from 0 to 129 {
+  .gap-#{$i} {
+    @include gap($i);
+  }
+  .padh-#{$i} {
+    @include pad-h($i);
+  }
+  .padv-#{$i} {
+    @include pad-v($i);
+  }
+  .rad-#{$i} {
+    border-radius: $i * $mirk;
+  }
+}
+
+$aligns: (
+  'center': center,
+  'start': flex-start,
+  'end': flex-end
+);
+$justifies: (
+  'center': center,
+  'start': flex-start,
+  'end': flex-end,
+  'between': space-between,
+  'around': space-around
+);
+
+@each $name, $value in $aligns {
+  .a-#{$name} {
+    align-items: $value;
+  }
+}
+@each $name, $value in $justifies {
+  .j-#{$name} {
+    justify-content: $value;
+  }
+}
+
+$colors: (
+  'white': $white,
+  'whiteHover': $whiteHover,
+  'black': $black,
+  'blackHover': $blackHover,
+  'accent': $accent,
+  'accentHover': $accentHover,
+);
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: $value;
+  }
+}
