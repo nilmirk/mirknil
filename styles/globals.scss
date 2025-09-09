@@ -25,10 +25,12 @@ body {
   color: $white;
   @extend .flex-c, .gap-40;
 }
-
 main {
-  @extend .flex-c, .gap-96;
+  @extend .flex-c, .gap-96, .padh-128;
   margin-top: 100 * $mirk;
+}
+section {
+  @extend .flex-c, .gap-40;
 }
 
 @mixin flex($direction: 'row', $wrap: 'nowrap') {
@@ -46,6 +48,11 @@ main {
 @mixin pad-v($pad) {
   padding-top: $pad * $mirk;
   padding-bottom: $pad * $mirk;
+}
+
+@mixin grid($template, $number, $value) {
+  display: grid;
+  grid-template-#{$template}: repeat($number, $value);
 }
 
 $flexes: (
@@ -77,6 +84,15 @@ $flexes: (
   }
   .rad-#{$i} {
     border-radius: $i * $mirk;
+  }
+  .w-#{$i} {
+    width: #{$i}+'%';
+  }
+  .grid-ar-#{$i} {
+    @include grid(rows, $i, 1fr)
+  }
+  .grid-ac-#{$i} {
+    @include grid(columns, $i, 1fr)
   }
 }
 
@@ -116,5 +132,8 @@ $colors: (
 @each $name, $value in $colors {
   .bg-#{$name} {
     background-color: $value;
+  }
+  .color-#{$name} {
+    color: $value;
   }
 }

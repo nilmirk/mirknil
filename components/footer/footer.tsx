@@ -1,4 +1,4 @@
-import '@/components/footer/footer.scss';
+import './footer.scss';
 import { NilmirkLogo, Telegram, Twitch, GitHub, YouTube } from '@/public/icons/icons';
 import { Text, Color, A } from 'mirk-ui';
 import { ReactNode } from 'react';

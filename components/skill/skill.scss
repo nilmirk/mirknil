@@ -1,0 +1,37 @@
+@use '@/styles/variables' as *;
+
+.skill {
+  .skill-header {
+    .skill-name {
+      svg {
+        height: 48 * $mirk;
+        width: 48 * $mirk;
+      }
+    }
+    .percent {
+      .circle-container {
+        .da {
+          background-color: $blackHover;
+          width: 50 * $mirk;
+          height: 50 * $mirk;
+          border-radius: 50%;
+          text-align: center;
+          align-content: center;
+        }
+        .clipper {
+          width: 64 * $mirk;
+          height: 64 * $mirk;
+          border-radius: 50%;
+          position: absolute;
+          outline: 16 * $mirk solid $blackHover;
+        }
+        .progress {
+          width: 64 * $mirk !important;
+          height: 64 * $mirk !important;
+          position: absolute;
+          transform: scaleX(-1);
+        }
+      }
+    }
+  }
+}

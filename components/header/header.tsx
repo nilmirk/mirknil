@@ -1,4 +1,4 @@
-import '@/components/header/header.scss';
+import './header.scss';
 import { NilmirkLogo, UserCircle } from '@/public/icons/icons';
 import { Text, Color, A } from 'mirk-ui';
 
