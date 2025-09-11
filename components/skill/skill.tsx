@@ -11,6 +11,7 @@ export default function SkillCard({ name, children, icon, percent }: {
 }) {
 
   const [animatedProgress, setAnimatedProgress] = useState(0);
+  const [displayedPercent, setDisplayedPercent] = useState(0);
 
   const size = 64;
   const strokeWidth = 8;
@@ -22,7 +23,6 @@ export default function SkillCard({ name, children, icon, percent }: {
 
   useEffect(() => {
     if (animate) {
-      // Анимация заполнения прогресс-бара
       let startTimestamp: number | null = null;
       
       const animateProgress = (timestamp: number) => {
@@ -31,17 +31,20 @@ export default function SkillCard({ name, children, icon, percent }: {
         const progressAmount = Math.min(elapsed / animationDuration, 1) * percent;
         
         setAnimatedProgress(progressAmount);
+        setDisplayedPercent(Math.round(progressAmount));
         
         if (elapsed < animationDuration) {
           requestAnimationFrame(animateProgress);
         } else {
           setAnimatedProgress(percent);
+          setDisplayedPercent(percent);
         }
       };
       
       requestAnimationFrame(animateProgress);
     } else {
       setAnimatedProgress(percent);
+      setDisplayedPercent(percent);
     }
   }, [percent, animate, animationDuration]);
 
@@ -54,7 +57,7 @@ export default function SkillCard({ name, children, icon, percent }: {
         </div>
         <div className="percent">
          <div className="circle-container flex-r a-center j-center">
-          <svg className="progress" width={64} height={64} viewBox="0 0 64 64">
+          <svg className="progress" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
             <circle
           cx={size / 2}
           cy={size / 2}
@@ -76,7 +79,7 @@ export default function SkillCard({ name, children, icon, percent }: {
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
           </svg>
-          <Texting className="da" text={Text.Caption1}>{`${percent}%`}</Texting>
+          <Texting className="da" text={Text.Caption1}>{`${displayedPercent}%`}</Texting>
           <div className="clipper"></div>
          </div>
         </div>
