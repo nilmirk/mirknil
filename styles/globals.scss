@@ -10,14 +10,12 @@
   list-style: none;
 }
 
-svg {
-  width: 1em;
-  height: 1em;
+a {
+  color: unset;
 }
-.nilmirklogo {
-  aspect-ratio: 3/2;
-  height: 1em;
+svg {
   width: auto;
+  height: 1em;
 }
 
 body {
@@ -30,7 +28,7 @@ main {
   margin-top: 100 * $mirk;
 }
 section {
-  @extend .flex-c, .gap-40;
+  @extend .flex-c, .gap-48;
 }
 
 @mixin flex($direction: 'row', $wrap: 'nowrap') {
@@ -40,7 +38,6 @@ section {
 @mixin gap($gap) {
   gap: $gap * $mirk;
 }
-
 @mixin pad-h($pad) {
   padding-left: $pad * $mirk;
   padding-right: $pad * $mirk;
@@ -49,7 +46,6 @@ section {
   padding-top: $pad * $mirk;
   padding-bottom: $pad * $mirk;
 }
-
 @mixin grid($template, $number, $value) {
   display: grid;
   grid-template-#{$template}: repeat($number, $value);
@@ -65,7 +61,6 @@ $flexes: (
   "rrw": (row-reverse, wrap),
   "crw": (column-reverse, wrap),
 );
-
 @each $name, $value in $flexes {
   .flex-#{$name} {
     @include flex(list.nth($value, 1), list.nth($value, 2))
@@ -81,6 +76,9 @@ $flexes: (
   }
   .padv-#{$i} {
     @include pad-v($i);
+  }
+  .pad-#{$i} {
+    @extend .padh-#{$i}, .padv-#{$i};
   }
   .rad-#{$i} {
     border-radius: $i * $mirk;
@@ -135,5 +133,14 @@ $colors: (
   }
   .color-#{$name} {
     color: $value;
+  }
+}
+
+$cursors: (
+  pointer, help, text, crosshair, default, auto, none, context-menu, progress, wait, cell, crosshair, vertical-text, alias, copy, move, no-drop, not-allowed, all-scroll, col-resize, row-resize, n-resize, e-resize, s-resize, w-resize, ns-resize, ew-resize, ne-resize, nw-resize, se-resize, sw-resize, nesw-resize, nwse-resize
+);
+@each $name in $cursors {
+  .c-#{$name} {
+    cursor: $name;
   }
 }

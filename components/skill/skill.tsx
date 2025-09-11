@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode, useState, useEffect } from "react";
-import '@/components/skill/skill.scss';
+import './skill.scss';
 import { Texting, Text } from "mirk-ui";
 
 export default function SkillCard({ name, children, icon, percent }: {
@@ -46,11 +46,11 @@ export default function SkillCard({ name, children, icon, percent }: {
   }, [percent, animate, animationDuration]);
 
   return (
-    <div className="skill padh-24 padv-24 rad-24 flex-c gap-24 bg-blackHover">
+    <div className="skill pad-24 rad-24 flex-c gap-24 bg-blackHover">
       <div className="skill-header flex-r a-center j-between">
         <div className="skill-name flex-r a-center gap-16">
           {icon}
-          <Texting className="da" text={Text.Body1}>{name}</Texting>
+          <Texting className="da" text={Text.Heading4}>{name}</Texting>
         </div>
         <div className="percent">
          <div className="circle-container flex-r a-center j-center">
