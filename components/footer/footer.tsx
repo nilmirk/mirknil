@@ -33,7 +33,7 @@ export default function Footer() {
         {links.map((link: string) => {
           return (
             <li key={link}>
-              <A text={Text.Button2} href={`/${link}`}>
+              <A text={Text.Button2} href={`/${link}`} target='_self'>
                 {link}
               </A>
             </li>
@@ -48,7 +48,7 @@ export default function Footer() {
         {contacts.map((item: {name: string, link: string, icon: ReactNode}) => {
           return (
             <li key={item.name}>
-              <A className='svg-w' text={Text.Button2} href={item.link} target='_self'>
+              <A className='svg-w' text={Text.Button2} href={item.link}>
                 {item.icon}
                 {item.name}
               </A>
