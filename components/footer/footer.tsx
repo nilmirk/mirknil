@@ -48,7 +48,7 @@ export default function Footer() {
         {contacts.map((item: {name: string, link: string, icon: ReactNode}) => {
           return (
             <li key={item.name}>
-              <A text={Text.Button2} href={item.link}>
+              <A className='svg-w' text={Text.Button2} href={item.link} target='_self'>
                 {item.icon}
                 {item.name}
               </A>

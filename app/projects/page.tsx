@@ -9,7 +9,7 @@ export default function Page() {
       <div className="projects-container">
         {projects.map((i: Project) => {
           return (
-            <ProjectCard key={i.id} id={i.id} icon={i.icon} thumb={i.thumb} name={i.name}/>
+            <ProjectCard key={i.name} href={i.href} icon={i.icon} thumb={i.thumb} name={i.name}/>
           );
         })}
       </div>

@@ -9,12 +9,12 @@ export default function Header() {
   return (
     <header className='padh-128'>
       <div className="header-container flex-r a-center j-between padh-24 padv-8 bg-blackHover rad-16">
-        <A text={Text.Body2} href='/'><NilmirkLogo /></A>
+        <A text={Text.Body2} href='/' target='_self'><NilmirkLogo /></A>
         <ul className='gap-16 flex-r'>
           {links.map((link: string) => {
             return (
               <li key={link}>
-                <A text={Text.Button2} href={`/${link}`}>
+                <A text={Text.Button2} href={`/${link}`} target='_self'>
                   {link}
                 </A>
               </li>

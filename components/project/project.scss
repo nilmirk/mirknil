@@ -1,4 +1,4 @@
-@use '@/styles/variables' as *;
+@use 'pkg:mirk-ui/variables' as *;
 
 .project {
   max-width: fit-content;
@@ -6,9 +6,6 @@
     svg {
       height: 50px !important;
     }
-  }
-  img {
-    position: relative !important;
   }
   &:hover {
     filter: drop-shadow(0 2*$mirk 5*$mirk $white);

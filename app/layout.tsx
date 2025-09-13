@@ -1,5 +1,5 @@
 import { IBM_Plex_Mono, Montserrat, Unbounded } from "next/font/google";
-import "@/styles/globals.scss";
+import "mirk-ui/dist/styles/globals.css";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
