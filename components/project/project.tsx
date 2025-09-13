@@ -1,6 +1,5 @@
 import { Text, Texting } from "mirk-ui";
 import './project.scss';
-import Image from "next/image";
 import Link from "next/link";
 import { Project } from "@/data/projects";
 
@@ -15,7 +14,7 @@ export default function ProjectCard({name, thumb, icon, href}: Project) {
         {ProjectIcon}
         <Texting className="color-whiteHover" text={Text.Body4}>{name}</Texting>
       </div>
-      <Image className="rad-16" src={thumb} alt={`${name} thumbnail`} fill/>
+      <img className="rad-16" src={thumb} alt={`${name} thumbnail`}/>
     </Link>
   );
 }
